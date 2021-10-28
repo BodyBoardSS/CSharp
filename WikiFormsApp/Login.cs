@@ -9,15 +9,19 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Web;
-using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 using System.Text.RegularExpressions;
 using System.Net.Http;
 using System.Web.Script.Serialization;
+using System.Threading;
+using WikiAPI.Models;
 
 namespace WikiFormsApp
 {
     public partial class Login : Form
     {
+        Thread th;
+        User user;
         public Login()
         {
             InitializeComponent();
@@ -32,11 +36,12 @@ namespace WikiFormsApp
                 using (var client = new HttpClient())
                 {
                     client.BaseAddress = new Uri("https://localhost:44348/");
-                    LoginClass lgn = new LoginClass { Email = txtUsuario.Text.ToString(), Password = txtPass.Text.ToString() };
+                    user = new User { useEmail = txtUsuario.Text.ToString(), usePassword = txtPass.Text.ToString() };
                     
-                    var response = client.PostAsync("api/v1/login", new StringContent(
-                                    new JavaScriptSerializer().Serialize(lgn), Encoding.UTF8, "application/json")).Result;
+                    var response = client.PostAsync("api/v1/Login", new StringContent(
+                                    new JavaScriptSerializer().Serialize(user), Encoding.UTF8, "application/json")).Result;
                     var a = response.Content.ReadAsStringAsync();
+                    
                     if (a.Result.ToString().Trim() == "0")
                     {
                         lblErrorMessage.Text = "Invalid login credentials.";
@@ -44,8 +49,12 @@ namespace WikiFormsApp
                     }
                     else
                     {
-                        lblErrorMessage.Text = "Loggedin successfully.";
-                        lblErrorMessage.ForeColor = Color.Green;
+                        var result = JsonConvert.DeserializeObject<User>(a.Result.ToString());
+                        Console.WriteLine(a);
+                        this.Close();
+                        th = new Thread(opennewform);
+                        th.SetApartmentState(ApartmentState.STA);
+                        th.Start();
                     }
                 }
             }
@@ -62,6 +71,11 @@ namespace WikiFormsApp
             {
                 errorProvider1.SetError(txtPass, "Please enter the password");
             }
+        }
+
+        public void opennewform(object obj)
+        {
+            Application.Run(new FrmHome(user));
         }
 
         private void ValidateEmail()
@@ -91,15 +105,6 @@ namespace WikiFormsApp
         private void txtUsername_Validating(object sender, CancelEventArgs e)
         {
             ValidateEmail();
-        }
-
-
-        public class LoginClass
-        {
-            public int id { get; set; }
-            public string UserName { get; set; }
-            public string Email { get; set; }
-            public string Password { get; set; }
         }
 
         private void Login_Load(object sender, EventArgs e)

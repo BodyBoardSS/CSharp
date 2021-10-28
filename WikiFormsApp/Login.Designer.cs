@@ -71,6 +71,7 @@ namespace WikiFormsApp
             this.txtPass.Name = "txtPass";
             this.txtPass.Size = new System.Drawing.Size(198, 20);
             this.txtPass.TabIndex = 3;
+            this.txtPass.UseSystemPasswordChar = true;
             // 
             // btnLogin
             // 
@@ -118,7 +119,6 @@ namespace WikiFormsApp
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.TextBox txtPass;
-        private System.Windows.Forms.Button btnLogon;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Label lblErrorMessage;

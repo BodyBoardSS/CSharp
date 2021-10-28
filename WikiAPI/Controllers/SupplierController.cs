@@ -14,18 +14,18 @@ namespace WikiAPI.Controllers
         private readonly WikiSalesDbContext _context;
 
         [HttpGet]
-        public List<Rol> GetRoles()
+        public List<Supplier> GetSupplier()
         {
-            return _context.Rol.ToList();
+            return _context.Supplier.ToList();
         }
 
         [HttpGet("{id:int}")]
         public IActionResult GetSupplierById(int id)
         {
-            var rol = this._context.Supplier.SingleOrDefault(ct => ct.supId == id);
-            if (rol != null)
+            var sup = this._context.Supplier.SingleOrDefault(ct => ct.supId == id);
+            if (sup != null)
             {
-                return Ok(rol);
+                return Ok(sup);
             }
             else
             {

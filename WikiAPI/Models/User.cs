@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -15,5 +16,7 @@ namespace WikiAPI.Models
         public string useUsuario { get; set; }
         [Column("use_password")]
         public string usePassword { get; set; }
+
+        public List<UserRol> UserRoles { get; set; }
     }
 }

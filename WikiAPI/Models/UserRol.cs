@@ -7,10 +7,11 @@ namespace WikiAPI.Models
     public class UserRol
     {
         [Column("use_id")]
-        [Key]
-        public User user { get; set; }
+        public int userId { get; set; }
 
         [Column("rol_id")]
-        public Rol rol { get; set; }
+        public int rolId { get; set; }
+        public User User { get; set; }
+        public Rol Rol { get; set; }
     }
 }

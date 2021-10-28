@@ -5,6 +5,14 @@ namespace WikiAPI.Models{
         public WikiSalesDbContext (DbContextOptions<WikiSalesDbContext> data)
         :base (data){}
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<UserRol>()
+                .HasKey(o => new {o.rolId,o.userId});
+
+            base.OnModelCreating(modelBuilder);
+        }
+
         public DbSet<Rol> Rol {get; set;}
         public DbSet<PersonType> PersonType { get; set; }
         public DbSet<User> User { get; set; }
