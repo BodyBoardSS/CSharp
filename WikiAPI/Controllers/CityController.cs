@@ -7,6 +7,7 @@ using WikiAPI.Models;
 
 namespace WikiAPI.Controllers
 {
+    [Route("api/v1/[controller]")]
     public class CityController : Controller
     {
         private readonly WikiSalesDbContext _context;

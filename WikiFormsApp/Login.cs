@@ -35,27 +35,33 @@ namespace WikiFormsApp
             {
                 using (var client = new HttpClient())
                 {
-                    client.BaseAddress = new Uri("https://localhost:44348/");
-                    user = new User { useEmail = txtUsuario.Text.ToString(), usePassword = txtPass.Text.ToString() };
-                    
-                    var response = client.PostAsync("api/v1/Login", new StringContent(
-                                    new JavaScriptSerializer().Serialize(user), Encoding.UTF8, "application/json")).Result;
-                    var a = response.Content.ReadAsStringAsync();
-                    
-                    if (a.Result.ToString().Trim() == "0")
+                    try
                     {
-                        lblErrorMessage.Text = "Invalid login credentials.";
-                        lblErrorMessage.ForeColor = Color.Red;
+                        client.BaseAddress = new Uri("https://localhost:44348/");
+                        user = new User { useEmail = txtUsuario.Text.ToString(), usePassword = txtPass.Text.ToString() };
+
+                        var response = client.PostAsync("api/v1/Login", new StringContent(
+                                        new JavaScriptSerializer().Serialize(user), Encoding.UTF8, "application/json")).Result;
+                        var a = response.Content.ReadAsStringAsync();
+
+                        if (a.Result.ToString().Trim() == "0")
+                        {
+                            lblErrorMessage.Text = "Invalid login credentials.";
+                            lblErrorMessage.ForeColor = Color.Red;
+                        }
+                        else
+                        {
+                            var result = JsonConvert.DeserializeObject<User>(a.Result.ToString());
+                            this.Close();
+                            th = new Thread(opennewform);
+                            th.SetApartmentState(ApartmentState.STA);
+                            th.Start();
+                        }
                     }
-                    else
-                    {
-                        var result = JsonConvert.DeserializeObject<User>(a.Result.ToString());
-                        Console.WriteLine(a);
-                        this.Close();
-                        th = new Thread(opennewform);
-                        th.SetApartmentState(ApartmentState.STA);
-                        th.Start();
+                    catch (Exception ex) {
+                        MessageBox.Show("No fue posible ingresar al sistema, favor llamar al administrador.","¡Alerta!",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                     }
+                    
                 }
             }
             else if (txtUsuario.Text.ToString().Trim() == "" && txtPass.Text.ToString().Trim() == "")
@@ -97,19 +103,25 @@ namespace WikiFormsApp
             }
         }
 
-        private void Login_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
-        }
-
         private void txtUsername_Validating(object sender, CancelEventArgs e)
         {
             ValidateEmail();
         }
 
-        private void Login_Load(object sender, EventArgs e)
+        private void btnMinimizar_Click(object sender, EventArgs e)
         {
+            this.WindowState = FormWindowState.Minimized;
+        }
 
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void txtUsuario_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtUsuario.Clear();
+            txtPass.Clear();
         }
     }
 }

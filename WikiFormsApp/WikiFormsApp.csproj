@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>wikiicon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\WikiAPI\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -50,17 +53,65 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmCity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCity.Designer.cs">
+      <DependentUpon>FrmCity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDocumentType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDocumentType.Designer.cs">
+      <DependentUpon>FrmDocumentType.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmHome.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmHome.Designer.cs">
       <DependentUpon>FrmHome.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmMethodPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMethodPayment.Designer.cs">
+      <DependentUpon>FrmMethodPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPersona.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPersona.Designer.cs">
+      <DependentUpon>FrmPersona.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPersonType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPersonType.Designer.cs">
+      <DependentUpon>FrmPersonType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProduct.Designer.cs">
+      <DependentUpon>FrmProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmProductType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProductType.Designer.cs">
+      <DependentUpon>FrmProductType.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmRol.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmRol.Designer.cs">
       <DependentUpon>FrmRol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSupplier.Designer.cs">
+      <DependentUpon>FrmSupplier.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -86,8 +137,29 @@
     <Compile Include="Models\UserRol.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmCity.resx">
+      <DependentUpon>FrmCity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDocumentType.resx">
+      <DependentUpon>FrmDocumentType.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmHome.resx">
       <DependentUpon>FrmHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMethodPayment.resx">
+      <DependentUpon>FrmMethodPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPersona.resx">
+      <DependentUpon>FrmPersona.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPersonType.resx">
+      <DependentUpon>FrmPersonType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmProduct.resx">
+      <DependentUpon>FrmProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmProductType.resx">
+      <DependentUpon>FrmProductType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRol.resx">
       <DependentUpon>FrmRol.cs</DependentUpon>
@@ -105,6 +177,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\WikiAPI.Models.City.datasource" />
+    <None Include="Properties\DataSources\WikiAPI.Models.PersonType.datasource" />
+    <None Include="Properties\DataSources\WikiAPI.Models.Rol.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -118,6 +193,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="wikiicon.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

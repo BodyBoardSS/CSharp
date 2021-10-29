@@ -64,18 +64,17 @@ namespace WikiAPI.Controllers
             return Created($"rol/{rol.rolId}", rol);
         }
 
-        [HttpPut("{id}")]
-        public IActionResult PutRol(int id, [FromBody] Rol rol)
+        [HttpPut]
+        public IActionResult PutRol([FromBody] Rol rol)
         {
 
-            var target = _context.Rol.FirstOrDefault(ct => ct.rolId == id);
+            var target = _context.Rol.FirstOrDefault(ct => ct.rolId == rol.rolId);
             if (target == null)
             {
                 return NotFound();
             }
             else
             {
-                target.rolId = rol.rolId;
                 target.rolNombre = rol.rolNombre;
 
                 _context.Rol.Update(target);
