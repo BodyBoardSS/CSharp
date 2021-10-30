@@ -5,17 +5,19 @@ namespace WikiAPI.Models{
         public WikiSalesDbContext (DbContextOptions<WikiSalesDbContext> data)
         :base (data){}
 
+        public DbSet<Rol> Rol { get; set; }
+        public DbSet<User> User { get; set; }
+        public DbSet<UserRol> UserRol { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<UserRol>()
-                .HasKey(o => new {o.rolId,o.userId});
+            modelBuilder.Entity<UserRol>().HasKey(sc => new { sc.userId, sc.rolId });
 
             base.OnModelCreating(modelBuilder);
         }
 
-        public DbSet<Rol> Rol {get; set;}
+        
         public DbSet<PersonType> PersonType { get; set; }
-        public DbSet<User> User { get; set; }
         public DbSet<Address> Address { get; set; }
         public DbSet<City> City { get; set; }
         public DbSet<Document> Document { get; set; }
@@ -28,6 +30,5 @@ namespace WikiAPI.Models{
         public DbSet<Product> Product { get; set; }
         public DbSet<ProductType> ProductType { get; set; }
         public DbSet<Supplier> Supplier { get; set; }
-        public DbSet<UserRol> UserRol { get; set; }
     }
 }

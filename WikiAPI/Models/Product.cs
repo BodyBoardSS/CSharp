@@ -23,7 +23,7 @@ namespace WikiAPI.Models
         public double prdStock { get; set; }
 
         [Column("prd_pdtid")]
-        public ProductType productType { get; set; }
+        public int prdPedtId { get; set; }
 
         [Column("prd_entry_date")]
         public DateTime prdEntryDate { get; set; }

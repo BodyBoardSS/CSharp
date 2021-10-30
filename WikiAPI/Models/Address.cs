@@ -14,6 +14,6 @@ namespace WikiAPI.Models
         public string address { get; set; }
         
         [Column("add_perid")]
-        public Person person { get; set; }
+        public int person { get; set; }
     }
 }

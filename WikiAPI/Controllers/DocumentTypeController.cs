@@ -1,4 +1,3 @@
-﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,23 +8,27 @@ using WikiAPI.Models;
 namespace WikiAPI.Controllers
 {
     [Route("api/v1/[controller]")]
-    public class SupplierController : Controller
+    public class DocumentTypeController : Controller
     {
         private readonly WikiSalesDbContext _context;
+        public DocumentTypeController(WikiSalesDbContext context)
+        {
+            _context = context;
+        }
 
         [HttpGet]
-        public List<Supplier> GetSupplier()
+        public List<DocumentType> GetDocumentType()
         {
-            return _context.Supplier.ToList();
+            return _context.DocumentType.ToList();
         }
 
         [HttpGet("{id:int}")]
-        public IActionResult GetSupplierById(int id)
+        public IActionResult GetDocumentTypeById(int id)
         {
-            var sup = this._context.Supplier.SingleOrDefault(ct => ct.supId == id);
-            if (sup != null)
+            var dct = this._context.DocumentType.SingleOrDefault(ct => ct.dctId == id);
+            if (dct != null)
             {
-                return Ok(sup);
+                return Ok(dct);
             }
             else
             {
@@ -34,9 +37,9 @@ namespace WikiAPI.Controllers
         }
 
         [HttpGet("{name}")]
-        public IActionResult GetSupplierByName(string name)
+        public IActionResult GetDocumentTypeByName(string description)
         {
-            var info = this._context.Supplier.SingleOrDefault(ct => ct.supTradename == name);
+            var info = this._context.DocumentType.SingleOrDefault(ct => ct.dctDescription == description);
 
             if (info == null)
             {
@@ -49,7 +52,7 @@ namespace WikiAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddSupplier([FromBody] Supplier sup)
+        public IActionResult AddDocumentType([FromBody] DocumentType DocumentType)
         {
 
             if (!this.ModelState.IsValid)
@@ -57,27 +60,26 @@ namespace WikiAPI.Controllers
                 return BadRequest();
             }
 
-            this._context.Supplier.Add(sup);
+            this._context.DocumentType.Add(DocumentType);
             this._context.SaveChanges();
-            return Created($"suppplier/{sup.supId}", sup);
+            return Created($"DocumentType/{DocumentType.dctId}", DocumentType);
         }
 
         [HttpPut("{id}")]
-        public IActionResult PutSupplier(int id, [FromBody] Supplier sup)
+        public IActionResult PutDocumentType(int id, [FromBody] DocumentType DocumentType)
         {
 
-            var target = _context.Supplier.FirstOrDefault(ct => ct.supId == id);
+            var target = _context.DocumentType.FirstOrDefault(ct => ct.dctId == id);
             if (target == null)
             {
                 return NotFound();
             }
             else
             {
-                target.supId = sup.supId;
-                target.supTradename = sup.supTradename;
-                target.supPerId = sup.supPerId;
+                target.dctId = DocumentType.dctId;
+                target.dctDescription = DocumentType.dctDescription;
 
-                _context.Supplier.Update(target);
+                _context.DocumentType.Update(target);
                 _context.SaveChanges();
                 return new NoContentResult();
             }
@@ -85,16 +87,16 @@ namespace WikiAPI.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult DeleteSupplier(int id)
+        public IActionResult DeleteDocumentType(int id)
         {
-            var target = _context.Supplier.FirstOrDefault(ct => ct.supId == id);
+            var target = _context.DocumentType.FirstOrDefault(ct => ct.dctId == id);
             if (!this.ModelState.IsValid)
             {
                 return BadRequest();
             }
             else
             {
-                _context.Supplier.Remove(target);
+                _context.DocumentType.Remove(target);
                 _context.SaveChanges();
                 return Ok();
             }

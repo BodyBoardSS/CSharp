@@ -7,6 +7,7 @@ namespace WikiAPI.Models
     [Table("users")]
     public class User
     {
+
         [Column("use_id")]
         [Key]
         public int useId { get; set; }
@@ -17,6 +18,6 @@ namespace WikiAPI.Models
         [Column("use_password")]
         public string usePassword { get; set; }
 
-        public List<UserRol> UserRoles { get; set; }
+        public virtual IList<UserRol> UserRoles { get; set; }
     }
 }

@@ -1,4 +1,3 @@
-﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,23 +8,27 @@ using WikiAPI.Models;
 namespace WikiAPI.Controllers
 {
     [Route("api/v1/[controller]")]
-    public class SupplierController : Controller
+    public class UserController : Controller
     {
         private readonly WikiSalesDbContext _context;
+        public UserController(WikiSalesDbContext context)
+        {
+            _context = context;
+        }
 
         [HttpGet]
-        public List<Supplier> GetSupplier()
+        public List<User> GetUser()
         {
-            return _context.Supplier.ToList();
+            return _context.User.ToList();
         }
 
         [HttpGet("{id:int}")]
-        public IActionResult GetSupplierById(int id)
+        public IActionResult GetUserById(int id)
         {
-            var sup = this._context.Supplier.SingleOrDefault(ct => ct.supId == id);
-            if (sup != null)
+            var use = this._context.User.SingleOrDefault(ct => ct.useId == id);
+            if (use != null)
             {
-                return Ok(sup);
+                return Ok(use);
             }
             else
             {
@@ -33,10 +36,10 @@ namespace WikiAPI.Controllers
             }
         }
 
-        [HttpGet("{name}")]
-        public IActionResult GetSupplierByName(string name)
+        [HttpGet("{email}")]
+        public IActionResult GetUserByName(string email)
         {
-            var info = this._context.Supplier.SingleOrDefault(ct => ct.supTradename == name);
+            var info = this._context.User.SingleOrDefault(ct => ct.useEmail == email);
 
             if (info == null)
             {
@@ -49,7 +52,7 @@ namespace WikiAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddSupplier([FromBody] Supplier sup)
+        public IActionResult AddUser([FromBody] User User)
         {
 
             if (!this.ModelState.IsValid)
@@ -57,27 +60,28 @@ namespace WikiAPI.Controllers
                 return BadRequest();
             }
 
-            this._context.Supplier.Add(sup);
+            this._context.User.Add(User);
             this._context.SaveChanges();
-            return Created($"suppplier/{sup.supId}", sup);
+            return Created($"User/{User.useId}", User);
         }
 
         [HttpPut("{id}")]
-        public IActionResult PutSupplier(int id, [FromBody] Supplier sup)
+        public IActionResult PutUser(int id, [FromBody] User User)
         {
 
-            var target = _context.Supplier.FirstOrDefault(ct => ct.supId == id);
+            var target = _context.User.FirstOrDefault(ct => ct.useId == id);
             if (target == null)
             {
                 return NotFound();
             }
             else
             {
-                target.supId = sup.supId;
-                target.supTradename = sup.supTradename;
-                target.supPerId = sup.supPerId;
+                target.useId = User.useId;
+                target.useEmail = User.useEmail;
+                target.useUsuario = User.useUsuario;
+                target.usePassword = User.usePassword;
 
-                _context.Supplier.Update(target);
+                _context.User.Update(target);
                 _context.SaveChanges();
                 return new NoContentResult();
             }
@@ -85,16 +89,16 @@ namespace WikiAPI.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult DeleteSupplier(int id)
+        public IActionResult DeleteUser(int id)
         {
-            var target = _context.Supplier.FirstOrDefault(ct => ct.supId == id);
+            var target = _context.User.FirstOrDefault(ct => ct.useId == id);
             if (!this.ModelState.IsValid)
             {
                 return BadRequest();
             }
             else
             {
-                _context.Supplier.Remove(target);
+                _context.User.Remove(target);
                 _context.SaveChanges();
                 return Ok();
             }

@@ -11,7 +11,9 @@ namespace WikiAPI.Models
 
         [Column("rol_id")]
         public int rolId { get; set; }
-        public User User { get; set; }
-        public Rol Rol { get; set; }
+        
+        public virtual User User { get; set; }
+        
+        public virtual Rol Rol { get; set; }
     }
 }

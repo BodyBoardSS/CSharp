@@ -120,5 +120,29 @@ namespace WikiFormsApp
             abrirFormulariosEnWrapper(new FrmProduct());
             seguirdBtn(btnProducto);
         }
+
+        private void btnUser_Click(object sender, EventArgs e)
+        {
+            abrirFormulariosEnWrapper(new FrmProduct());
+            seguirdBtn(btnUser);
+        }
+
+        private void btnFacturar_Click(object sender, EventArgs e)
+        {
+            abrirFormulariosEnWrapper(new FrmProduct());
+            seguirdBtn(btnFacturar);
+        }
+
+        private void btnVentas_Click(object sender, EventArgs e)
+        {
+            abrirFormulariosEnWrapper(new FrmProduct());
+            seguirdBtn(btnVentas);
+        }
+
+        private void btnAcercaDe_Click(object sender, EventArgs e)
+        {
+            abrirFormulariosEnWrapper(new FrmProduct());
+            seguirdBtn(btnAcercaDe);
+        }
     }
 }

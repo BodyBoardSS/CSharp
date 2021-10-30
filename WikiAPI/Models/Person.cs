@@ -13,7 +13,11 @@ namespace WikiAPI.Models
         public string perName { get; set; }
         [Column("per_lastname")]
         public string perLastname { get; set; }
-        [Column("per_docid")]
-        public Document document { get; set; }
+
+        [Column("per_ctyid")]
+        public int perCtyId { get; set; }
+
+        [Column("per_petid")]
+        public int perPetId { get; set; }
     }
 }

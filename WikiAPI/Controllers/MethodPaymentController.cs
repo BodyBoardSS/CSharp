@@ -1,4 +1,3 @@
-﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,23 +8,27 @@ using WikiAPI.Models;
 namespace WikiAPI.Controllers
 {
     [Route("api/v1/[controller]")]
-    public class SupplierController : Controller
+    public class MethodPaymentController : Controller
     {
         private readonly WikiSalesDbContext _context;
+        public MethodPaymentController(WikiSalesDbContext context)
+        {
+            _context = context;
+        }
 
         [HttpGet]
-        public List<Supplier> GetSupplier()
+        public List<MethodPayment> GetMethodPayment()
         {
-            return _context.Supplier.ToList();
+            return _context.MethodPayment.ToList();
         }
 
         [HttpGet("{id:int}")]
-        public IActionResult GetSupplierById(int id)
+        public IActionResult GetMethodPaymentById(int id)
         {
-            var sup = this._context.Supplier.SingleOrDefault(ct => ct.supId == id);
-            if (sup != null)
+            var mtp = this._context.MethodPayment.SingleOrDefault(ct => ct.mtpId == id);
+            if (mtp != null)
             {
-                return Ok(sup);
+                return Ok(mtp);
             }
             else
             {
@@ -34,9 +37,9 @@ namespace WikiAPI.Controllers
         }
 
         [HttpGet("{name}")]
-        public IActionResult GetSupplierByName(string name)
+        public IActionResult GetMethodPaymentByName(string description)
         {
-            var info = this._context.Supplier.SingleOrDefault(ct => ct.supTradename == name);
+            var info = this._context.MethodPayment.SingleOrDefault(ct => ct.mtpDescription == description);
 
             if (info == null)
             {
@@ -49,7 +52,7 @@ namespace WikiAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddSupplier([FromBody] Supplier sup)
+        public IActionResult AddMethodPayment([FromBody] MethodPayment MethodPayment)
         {
 
             if (!this.ModelState.IsValid)
@@ -57,27 +60,26 @@ namespace WikiAPI.Controllers
                 return BadRequest();
             }
 
-            this._context.Supplier.Add(sup);
+            this._context.MethodPayment.Add(MethodPayment);
             this._context.SaveChanges();
-            return Created($"suppplier/{sup.supId}", sup);
+            return Created($"MethodPayment/{MethodPayment.mtpId}", MethodPayment);
         }
 
         [HttpPut("{id}")]
-        public IActionResult PutSupplier(int id, [FromBody] Supplier sup)
+        public IActionResult PutMethodPayment(int id, [FromBody] MethodPayment MethodPayment)
         {
 
-            var target = _context.Supplier.FirstOrDefault(ct => ct.supId == id);
+            var target = _context.MethodPayment.FirstOrDefault(ct => ct.mtpId == id);
             if (target == null)
             {
                 return NotFound();
             }
             else
             {
-                target.supId = sup.supId;
-                target.supTradename = sup.supTradename;
-                target.supPerId = sup.supPerId;
+                target.mtpId = MethodPayment.mtpId;
+                target.mtpDescription = MethodPayment.mtpDescription;
 
-                _context.Supplier.Update(target);
+                _context.MethodPayment.Update(target);
                 _context.SaveChanges();
                 return new NoContentResult();
             }
@@ -85,16 +87,16 @@ namespace WikiAPI.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult DeleteSupplier(int id)
+        public IActionResult DeleteMethodPayment(int id)
         {
-            var target = _context.Supplier.FirstOrDefault(ct => ct.supId == id);
+            var target = _context.MethodPayment.FirstOrDefault(ct => ct.mtpId == id);
             if (!this.ModelState.IsValid)
             {
                 return BadRequest();
             }
             else
             {
-                _context.Supplier.Remove(target);
+                _context.MethodPayment.Remove(target);
                 _context.SaveChanges();
                 return Ok();
             }

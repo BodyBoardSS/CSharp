@@ -11,7 +11,7 @@ namespace WikiAPI.Models
         public int phoId { get; set; }
 
         [Column("pho_perid")]
-        public Person person { get; set; }
+        public int person { get; set; }
         
         [Column("pho_cellphone")]
         public string phoCellPhone { get; set; }

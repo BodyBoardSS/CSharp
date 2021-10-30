@@ -1,4 +1,3 @@
-﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,23 +8,27 @@ using WikiAPI.Models;
 namespace WikiAPI.Controllers
 {
     [Route("api/v1/[controller]")]
-    public class SupplierController : Controller
+    public class AddressController : Controller
     {
         private readonly WikiSalesDbContext _context;
+        public AddressController(WikiSalesDbContext context)
+        {
+            _context = context;
+        }
 
         [HttpGet]
-        public List<Supplier> GetSupplier()
+        public List<Address> GetAddress()
         {
-            return _context.Supplier.ToList();
+            return _context.Address.ToList();
         }
 
         [HttpGet("{id:int}")]
-        public IActionResult GetSupplierById(int id)
+        public IActionResult GetAddressById(int id)
         {
-            var sup = this._context.Supplier.SingleOrDefault(ct => ct.supId == id);
-            if (sup != null)
+            var add = this._context.Address.SingleOrDefault(ct => ct.addId == id);
+            if (add != null)
             {
-                return Ok(sup);
+                return Ok(add);
             }
             else
             {
@@ -33,10 +36,10 @@ namespace WikiAPI.Controllers
             }
         }
 
-        [HttpGet("{name}")]
-        public IActionResult GetSupplierByName(string name)
+        [HttpGet("{address}")]
+        public IActionResult GetAddressByName(string address)
         {
-            var info = this._context.Supplier.SingleOrDefault(ct => ct.supTradename == name);
+            var info = this._context.Address.SingleOrDefault(ct => ct.address == address);
 
             if (info == null)
             {
@@ -49,7 +52,7 @@ namespace WikiAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddSupplier([FromBody] Supplier sup)
+        public IActionResult AddAddress([FromBody] Address Address)
         {
 
             if (!this.ModelState.IsValid)
@@ -57,27 +60,26 @@ namespace WikiAPI.Controllers
                 return BadRequest();
             }
 
-            this._context.Supplier.Add(sup);
+            this._context.Address.Add(Address);
             this._context.SaveChanges();
-            return Created($"suppplier/{sup.supId}", sup);
+            return Created($"Address/{Address.addId}", Address);
         }
 
         [HttpPut("{id}")]
-        public IActionResult PutSupplier(int id, [FromBody] Supplier sup)
+        public IActionResult PutAddress(int id, [FromBody] Address Address)
         {
 
-            var target = _context.Supplier.FirstOrDefault(ct => ct.supId == id);
+            var target = _context.Address.FirstOrDefault(ct => ct.addId == id);
             if (target == null)
             {
                 return NotFound();
             }
             else
             {
-                target.supId = sup.supId;
-                target.supTradename = sup.supTradename;
-                target.supPerId = sup.supPerId;
-
-                _context.Supplier.Update(target);
+                target.addId = Address.addId;
+                target.address = Address.address;
+                target.person = Address.person;
+                _context.Address.Update(target);
                 _context.SaveChanges();
                 return new NoContentResult();
             }
@@ -85,16 +87,16 @@ namespace WikiAPI.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult DeleteSupplier(int id)
+        public IActionResult DeleteAddress(int id)
         {
-            var target = _context.Supplier.FirstOrDefault(ct => ct.supId == id);
+            var target = _context.Address.FirstOrDefault(ct => ct.addId == id);
             if (!this.ModelState.IsValid)
             {
                 return BadRequest();
             }
             else
             {
-                _context.Supplier.Remove(target);
+                _context.Address.Remove(target);
                 _context.SaveChanges();
                 return Ok();
             }

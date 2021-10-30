@@ -1,4 +1,3 @@
-﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,23 +8,27 @@ using WikiAPI.Models;
 namespace WikiAPI.Controllers
 {
     [Route("api/v1/[controller]")]
-    public class SupplierController : Controller
+    public class PersonController : Controller
     {
         private readonly WikiSalesDbContext _context;
+        public PersonController(WikiSalesDbContext context)
+        {
+            _context = context;
+        }
 
         [HttpGet]
-        public List<Supplier> GetSupplier()
+        public List<Person> GetPerson()
         {
-            return _context.Supplier.ToList();
+            return _context.Person.ToList();
         }
 
         [HttpGet("{id:int}")]
-        public IActionResult GetSupplierById(int id)
+        public IActionResult GetPersonById(int id)
         {
-            var sup = this._context.Supplier.SingleOrDefault(ct => ct.supId == id);
-            if (sup != null)
+            var per = this._context.Person.SingleOrDefault(ct => ct.perId == id);
+            if (per != null)
             {
-                return Ok(sup);
+                return Ok(per);
             }
             else
             {
@@ -34,9 +37,9 @@ namespace WikiAPI.Controllers
         }
 
         [HttpGet("{name}")]
-        public IActionResult GetSupplierByName(string name)
+        public IActionResult GetPersonByName(string name)
         {
-            var info = this._context.Supplier.SingleOrDefault(ct => ct.supTradename == name);
+            var info = this._context.Person.SingleOrDefault(ct => ct.perName == name);
 
             if (info == null)
             {
@@ -49,7 +52,7 @@ namespace WikiAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddSupplier([FromBody] Supplier sup)
+        public IActionResult AddPerson([FromBody] Person Person)
         {
 
             if (!this.ModelState.IsValid)
@@ -57,27 +60,28 @@ namespace WikiAPI.Controllers
                 return BadRequest();
             }
 
-            this._context.Supplier.Add(sup);
+            this._context.Person.Add(Person);
             this._context.SaveChanges();
-            return Created($"suppplier/{sup.supId}", sup);
+            return Created($"Person/{Person.perId}", Person);
         }
 
         [HttpPut("{id}")]
-        public IActionResult PutSupplier(int id, [FromBody] Supplier sup)
+        public IActionResult PutPerson(int id, [FromBody] Person Person)
         {
 
-            var target = _context.Supplier.FirstOrDefault(ct => ct.supId == id);
+            var target = _context.Person.FirstOrDefault(ct => ct.perId == id);
             if (target == null)
             {
                 return NotFound();
             }
             else
             {
-                target.supId = sup.supId;
-                target.supTradename = sup.supTradename;
-                target.supPerId = sup.supPerId;
-
-                _context.Supplier.Update(target);
+                target.perId = Person.perId;
+                target.perName = Person.perName;
+                target.perLastname = Person.perLastname;
+                target.perCtyId = Person.perCtyId;
+                target.perPetId = Person.perPetId;
+                _context.Person.Update(target);
                 _context.SaveChanges();
                 return new NoContentResult();
             }
@@ -85,16 +89,16 @@ namespace WikiAPI.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult DeleteSupplier(int id)
+        public IActionResult DeletePerson(int id)
         {
-            var target = _context.Supplier.FirstOrDefault(ct => ct.supId == id);
+            var target = _context.Person.FirstOrDefault(ct => ct.perId == id);
             if (!this.ModelState.IsValid)
             {
                 return BadRequest();
             }
             else
             {
-                _context.Supplier.Remove(target);
+                _context.Person.Remove(target);
                 _context.SaveChanges();
                 return Ok();
             }

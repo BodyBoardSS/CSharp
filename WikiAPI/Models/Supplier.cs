@@ -9,22 +9,12 @@ namespace WikiAPI.Models
         [Column("sup_id")]
         [Key]
         public int supId { get; set; }
-        [Column("sup_name")]
-        public string supName { get; set; }
-
-        [Column("sup_lastname")]
-        public string supLasname { get; set; }
 
         [Column("sup_tradename")]
         public string supTradename { get; set; }
-
-        [Column("sup_address")]
-        public string supAddress { get; set; }
-
-        [Column("sup_ctyid")]
-        public City city { get; set; }
-
-        [Column("sup_ctyid")]
-        public Document document { get; set; }
+        [Column("sup_perid")]
+        public int supPerId { get; set; }
+        public Person person { get; set; }
+ 
     }
 }

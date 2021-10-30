@@ -1,4 +1,3 @@
-﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,23 +8,27 @@ using WikiAPI.Models;
 namespace WikiAPI.Controllers
 {
     [Route("api/v1/[controller]")]
-    public class SupplierController : Controller
+    public class PhoneController : Controller
     {
         private readonly WikiSalesDbContext _context;
+        public PhoneController(WikiSalesDbContext context)
+        {
+            _context = context;
+        }
 
         [HttpGet]
-        public List<Supplier> GetSupplier()
+        public List<Phone> GetPhone()
         {
-            return _context.Supplier.ToList();
+            return _context.Phone.ToList();
         }
 
         [HttpGet("{id:int}")]
-        public IActionResult GetSupplierById(int id)
+        public IActionResult GetPhoneById(int id)
         {
-            var sup = this._context.Supplier.SingleOrDefault(ct => ct.supId == id);
-            if (sup != null)
+            var pho = this._context.Phone.SingleOrDefault(ct => ct.phoId == id);
+            if (pho != null)
             {
-                return Ok(sup);
+                return Ok(pho);
             }
             else
             {
@@ -33,10 +36,10 @@ namespace WikiAPI.Controllers
             }
         }
 
-        [HttpGet("{name}")]
-        public IActionResult GetSupplierByName(string name)
+        [HttpGet("{phone}")]
+        public IActionResult GetPhoneByName(string phone)
         {
-            var info = this._context.Supplier.SingleOrDefault(ct => ct.supTradename == name);
+            var info = this._context.Phone.SingleOrDefault(ct => ct.phoCellPhone == phone);
 
             if (info == null)
             {
@@ -49,7 +52,7 @@ namespace WikiAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddSupplier([FromBody] Supplier sup)
+        public IActionResult AddPhone([FromBody] Phone Phone)
         {
 
             if (!this.ModelState.IsValid)
@@ -57,27 +60,26 @@ namespace WikiAPI.Controllers
                 return BadRequest();
             }
 
-            this._context.Supplier.Add(sup);
+            this._context.Phone.Add(Phone);
             this._context.SaveChanges();
-            return Created($"suppplier/{sup.supId}", sup);
+            return Created($"Phone/{Phone.phoId}", Phone);
         }
 
         [HttpPut("{id}")]
-        public IActionResult PutSupplier(int id, [FromBody] Supplier sup)
+        public IActionResult PutPhone(int id, [FromBody] Phone Phone)
         {
 
-            var target = _context.Supplier.FirstOrDefault(ct => ct.supId == id);
+            var target = _context.Phone.FirstOrDefault(ct => ct.phoId == id);
             if (target == null)
             {
                 return NotFound();
             }
             else
             {
-                target.supId = sup.supId;
-                target.supTradename = sup.supTradename;
-                target.supPerId = sup.supPerId;
-
-                _context.Supplier.Update(target);
+                target.phoId = Phone.phoId;
+                target.phoCellPhone = Phone.phoCellPhone;
+                target.person = Phone.person;
+                _context.Phone.Update(target);
                 _context.SaveChanges();
                 return new NoContentResult();
             }
@@ -85,16 +87,16 @@ namespace WikiAPI.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult DeleteSupplier(int id)
+        public IActionResult DeletePhone(int id)
         {
-            var target = _context.Supplier.FirstOrDefault(ct => ct.supId == id);
+            var target = _context.Phone.FirstOrDefault(ct => ct.phoId == id);
             if (!this.ModelState.IsValid)
             {
                 return BadRequest();
             }
             else
             {
-                _context.Supplier.Remove(target);
+                _context.Phone.Remove(target);
                 _context.SaveChanges();
                 return Ok();
             }
