@@ -8,8 +8,10 @@ namespace WikiAPI.Models
     {
         [Column("pdt_id")]
         [Key]
+        [ForeignKey("product")]
         public int pdtId { get; set; }
         [Column("pdt_description")]
         public string pdtDescription { get; set; }
+        public virtual Product product { get; set; }
     }
 }

@@ -17,7 +17,6 @@ namespace WikiAPI.Models
         public string useUsuario { get; set; }
         [Column("use_password")]
         public string usePassword { get; set; }
-
         public virtual IList<UserRol> UserRoles { get; set; }
     }
 }

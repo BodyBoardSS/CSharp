@@ -8,8 +8,11 @@ namespace WikiAPI.Models
     {
         [Column("pet_id")]
         [Key]
+        [ForeignKey("person")]
         public int petId { get; set; }
         [Column("pet_description")]
         public string petDescription { get; set; }
+
+        public virtual Person person { get; set; }
     }
 }

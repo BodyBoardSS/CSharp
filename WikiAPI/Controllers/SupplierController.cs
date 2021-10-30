@@ -13,6 +13,11 @@ namespace WikiAPI.Controllers
     {
         private readonly WikiSalesDbContext _context;
 
+        public SupplierController(WikiSalesDbContext context)
+        {
+            _context = context;
+        }
+
         [HttpGet]
         public List<Supplier> GetSupplier()
         {

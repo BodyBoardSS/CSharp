@@ -1,7 +1,11 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using WikiAPI.Models;
 
-using System;
-
-namespace WikiAPI.Models
+namespace WikiFormsApp.Models
 {
     public class Product
     {
@@ -10,7 +14,14 @@ namespace WikiAPI.Models
         public double prdPrice { get; set; }
         public double prdCost { get; set; }
         public double prdStock { get; set; }
-        public ProductType productType { get; set; }
         public DateTime prdEntryDate { get; set; }
+        public int prdPdtId { get; set; }
+        public int prdSupId { get; set; }
+        public ProductType productType { get; set; }
+        public Supplier supplier { get; set; }
+
     }
 }
+
+
+

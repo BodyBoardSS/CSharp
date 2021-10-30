@@ -8,6 +8,7 @@ namespace WikiAPI.Models
     {
         [Column("per_id")]
         [Key]
+        [ForeignKey("supplier")]
         public int perId { get; set; }
         [Column("per_name")]
         public string perName { get; set; }
@@ -19,5 +20,8 @@ namespace WikiAPI.Models
 
         [Column("per_petid")]
         public int perPetId { get; set; }
+        public virtual City city { get; set; }
+        public virtual PersonType personType { get; set; }
+        public virtual Supplier supplier { get; set; }
     }
 }

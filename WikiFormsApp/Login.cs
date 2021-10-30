@@ -60,6 +60,7 @@ namespace WikiFormsApp
                     }
                     catch (Exception ex) {
                         MessageBox.Show("No fue posible ingresar al sistema, favor llamar al administrador.","¡Alerta!",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                        Console.WriteLine(ex);
                     }
                     
                 }

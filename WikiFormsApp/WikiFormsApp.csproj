@@ -183,10 +183,12 @@
     <None Include="Properties\DataSources\WikiAPI.Models.City.datasource" />
     <None Include="Properties\DataSources\WikiAPI.Models.DocumentType.datasource" />
     <None Include="Properties\DataSources\WikiAPI.Models.MethodPayment.datasource" />
+    <None Include="Properties\DataSources\WikiAPI.Models.Person.datasource" />
     <None Include="Properties\DataSources\WikiAPI.Models.PersonType.datasource" />
     <None Include="Properties\DataSources\WikiAPI.Models.ProductType.datasource" />
     <None Include="Properties\DataSources\WikiAPI.Models.Rol.datasource" />
     <None Include="Properties\DataSources\WikiAPI.Models.Supplier.datasource" />
+    <None Include="Properties\DataSources\WikiFormsApp.Models.Product.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

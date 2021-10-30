@@ -25,7 +25,12 @@ namespace WikiAPI.Models
         [Column("prd_pdtid")]
         public int prdPedtId { get; set; }
 
+        [Column("prd_supid")]
+        public int prdSuptId { get; set; }
+
         [Column("prd_entry_date")]
         public DateTime prdEntryDate { get; set; }
+        public virtual ProductType productType { get; set; }
+        public virtual Supplier supplier { get; set; }
     }
 }

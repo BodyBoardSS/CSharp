@@ -1,4 +1,6 @@
 
+using WikiFormsApp.Models;
+
 namespace WikiAPI.Models
 {
     public class InvoiceDetail
