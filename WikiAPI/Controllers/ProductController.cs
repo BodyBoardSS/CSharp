@@ -52,7 +52,7 @@ namespace WikiAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddProduct([FromBody] Product Product)
+        public IActionResult AddProduct([FromBody] Product produt)
         {
 
             if (!this.ModelState.IsValid)
@@ -60,9 +60,9 @@ namespace WikiAPI.Controllers
                 return BadRequest();
             }
 
-            this._context.Product.Add(Product);
+            this._context.Product.Add(produt);
             this._context.SaveChanges();
-            return Created($"Product/{Product.prdId}", Product);
+            return Created($"Product/{produt.prdId}", produt);
         }
 
         [HttpPut("{id}")]
@@ -76,12 +76,13 @@ namespace WikiAPI.Controllers
             }
             else
             {
-                target.prdId = Product.prdId;
+                target.prdId = id;
                 target.prdDescription = Product.prdDescription;
                 target.prdPrice = Product.prdPrice;
                 target.prdCost = Product.prdCost;
                 target.prdStock = Product.prdStock;
-                target.prdPedtId = Product.prdPedtId;
+                target.prdPdtId = Product.prdPdtId;
+                target.prdSupId = Product.prdSupId;
                 target.prdEntryDate = Product.prdEntryDate;
                 
                 _context.Product.Update(target);

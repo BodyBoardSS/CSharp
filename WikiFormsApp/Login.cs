@@ -14,14 +14,13 @@ using System.Text.RegularExpressions;
 using System.Net.Http;
 using System.Web.Script.Serialization;
 using System.Threading;
-using WikiAPI.Models;
+using WikiFormsApp.Controller;
 
 namespace WikiFormsApp
 {
     public partial class Login : Form
     {
         Thread th;
-        User user;
         public Login()
         {
             InitializeComponent();
@@ -33,37 +32,31 @@ namespace WikiFormsApp
             errorProvider1.SetError(txtPass, "");
             if (txtUsuario.Text.ToString().Trim() != "" && txtPass.Text.ToString().Trim() != "")
             {
-                using (var client = new HttpClient())
-                {
                     try
                     {
-                        client.BaseAddress = new Uri("https://localhost:44348/");
-                        user = new User { useEmail = txtUsuario.Text.ToString(), usePassword = txtPass.Text.ToString() };
+                        DataTable Datos = NTrabajador.Login(this.txtUsuario.Text, this.txtPass.Text);
 
-                        var response = client.PostAsync("api/v1/Login", new StringContent(
-                                        new JavaScriptSerializer().Serialize(user), Encoding.UTF8, "application/json")).Result;
-                        var a = response.Content.ReadAsStringAsync();
-
-                        if (a.Result.ToString().Trim() == "0")
+                        if (Datos.Rows.Count == 0)
                         {
                             lblErrorMessage.Text = "Invalid login credentials.";
                             lblErrorMessage.ForeColor = Color.Red;
                         }
                         else
                         {
-                            var result = JsonConvert.DeserializeObject<User>(a.Result.ToString());
-                            this.Close();
-                            th = new Thread(opennewform);
-                            th.SetApartmentState(ApartmentState.STA);
-                            th.Start();
+                            FrmHome frm = new FrmHome();
+                            frm.idTrabajador = Datos.Rows[0][0].ToString();
+                            frm.apellidos = Datos.Rows[0][1].ToString();
+                            frm.nombre = Datos.Rows[0][2].ToString();
+                            frm.acceso = Datos.Rows[0][3].ToString();
+
+                            frm.Show();
+                            this.Hide();
                         }
                     }
                     catch (Exception ex) {
                         MessageBox.Show("No fue posible ingresar al sistema, favor llamar al administrador.","¡Alerta!",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                         Console.WriteLine(ex);
                     }
-                    
-                }
             }
             else if (txtUsuario.Text.ToString().Trim() == "" && txtPass.Text.ToString().Trim() == "")
             {
@@ -78,11 +71,6 @@ namespace WikiFormsApp
             {
                 errorProvider1.SetError(txtPass, "Please enter the password");
             }
-        }
-
-        public void opennewform(object obj)
-        {
-            Application.Run(new FrmHome(user));
         }
 
         private void ValidateEmail()

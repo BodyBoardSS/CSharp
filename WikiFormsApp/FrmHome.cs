@@ -7,22 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WikiAPI.Models;
 
 namespace WikiFormsApp
 {
     public partial class FrmHome : Form
     {
+        public string idTrabajador = "";
+        public string apellidos = "";
+        public string nombre = "";
+        public string acceso = "";
         public FrmHome()
         {
             InitializeComponent();
-        }
-
-        public FrmHome(User user)
-        {
-            
-            InitializeComponent();
-
         }
 
         public void PantallaOk() {
@@ -33,6 +29,8 @@ namespace WikiFormsApp
         private void FrmHome_Load(object sender, EventArgs e)
         {
             PantallaOk();
+            gestionarPermisos();
+            lblUser.Text = nombre+" "+apellidos;
         }
 
         private void pctSalir_Click(object sender, EventArgs e)
@@ -47,14 +45,14 @@ namespace WikiFormsApp
 
         private void btnRol_Click(object sender, EventArgs e)
         {
-            abrirFormulariosEnWrapper(new FrmRol());
-            seguirdBtn(btnRol);
+            //abrirFormulariosEnWrapper(new FrmRol());
+            //seguirdBtn(btnRol);
         }
 
         private void btnProveedores_Click(object sender, EventArgs e)
         {
-            abrirFormulariosEnWrapper(new FrmSupplier());
-            seguirdBtn(btnProveedores);
+            abrirFormulariosEnWrapper(new FrmTrabajador());
+            seguirdBtn(btnTrabajador);
         }
 
         private Form formActivado = null;
@@ -79,70 +77,60 @@ namespace WikiFormsApp
             pcbRoles.Location = sender.Location;
         }
 
-        private void btnCity_Click(object sender, EventArgs e)
-        {
-            abrirFormulariosEnWrapper(new FrmCity());
-            seguirdBtn(btnCity);
-        }
-
-        private void btnDocumentType_Click(object sender, EventArgs e)
-        {
-            abrirFormulariosEnWrapper(new FrmDocumentType());
-            seguirdBtn(btnDocumentType);
-        }
-
-        private void btnProductType_Click(object sender, EventArgs e)
-        {
-            abrirFormulariosEnWrapper(new FrmProductType());
-            seguirdBtn(btnProductType);
-        }
-
-        private void btnPersonType_Click(object sender, EventArgs e)
-        {
-            abrirFormulariosEnWrapper(new FrmPersonType());
-            seguirdBtn(btnPersonType);
-        }
-
-        private void btnMethodPayment_Click(object sender, EventArgs e)
-        {
-            abrirFormulariosEnWrapper(new FrmMethodPayment());
-            seguirdBtn(btnMethodPayment);
-        }
-
-        private void btnPerson_Click(object sender, EventArgs e)
-        {
-            abrirFormulariosEnWrapper(new FrmPersona());
-            seguirdBtn(btnPerson);
-        }
-
-        private void btnProducto_Click(object sender, EventArgs e)
-        {
-            abrirFormulariosEnWrapper(new FrmProduct());
-            seguirdBtn(btnProducto);
-        }
-
-        private void btnUser_Click(object sender, EventArgs e)
-        {
-            abrirFormulariosEnWrapper(new FrmProduct());
-            seguirdBtn(btnUser);
-        }
-
-        private void btnFacturar_Click(object sender, EventArgs e)
-        {
-            abrirFormulariosEnWrapper(new FrmProduct());
-            seguirdBtn(btnFacturar);
-        }
-
         private void btnVentas_Click(object sender, EventArgs e)
         {
-            abrirFormulariosEnWrapper(new FrmProduct());
+            abrirFormulariosEnWrapper(new FrmVenta());
             seguirdBtn(btnVentas);
         }
 
         private void btnAcercaDe_Click(object sender, EventArgs e)
         {
-            abrirFormulariosEnWrapper(new FrmProduct());
-            seguirdBtn(btnAcercaDe);
+            //abrirFormulariosEnWrapper(new FrmProduct());
+            //seguirdBtn(btnAcercaDe);
+        }
+
+        private void gestionarPermisos()
+        {
+            if (acceso == "Administrador")
+            {
+                btnInfo.Visible = false;
+            }
+        }
+
+        private void btnTrabajador_Click(object sender, EventArgs e)
+        {
+            abrirFormulariosEnWrapper(new FrmTrabajador());
+            seguirdBtn(btnTrabajador);
+        }
+
+        private void btnArticulo_Click(object sender, EventArgs e)
+        {
+            abrirFormulariosEnWrapper(new FrmArticulo());
+            seguirdBtn(btnArticulo);
+        }
+
+        private void btnCategoria_Click(object sender, EventArgs e)
+        {
+            abrirFormulariosEnWrapper(new FrmCategoria());
+            seguirdBtn(btnCategoria);
+        }
+
+        private void btnCliente_Click(object sender, EventArgs e)
+        {
+            abrirFormulariosEnWrapper(new FrmCliente());
+            seguirdBtn(btnCliente);
+        }
+
+        private void btnProveedor_Click(object sender, EventArgs e)
+        {
+            abrirFormulariosEnWrapper(new FrmProveedor());
+            seguirdBtn(btnProveedor);
+        }
+
+        private void btnPresentacion_Click(object sender, EventArgs e)
+        {
+            abrirFormulariosEnWrapper(new FrmPresentacion());
+            seguirdBtn(btnPresentacion);
         }
     }
 }

@@ -8,7 +8,6 @@ namespace WikiAPI.Models
     {
         [Column("sup_id")]
         [Key]
-        [ForeignKey("product")]
         public int supId { get; set; }
 
         [Column("sup_tradename")]
@@ -16,6 +15,5 @@ namespace WikiAPI.Models
         [Column("sup_perid")]
         public int supPerId { get; set; }
         public virtual Person person { get; set; }
-        public virtual Product product { get; set; }
     }
 }

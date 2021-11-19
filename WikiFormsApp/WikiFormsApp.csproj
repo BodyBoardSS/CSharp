@@ -21,7 +21,7 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <WarningLevel>1</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -36,6 +36,18 @@
     <ApplicationIcon>wikiicon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\WikiAPI\packages\Microsoft.Reporting.WinForms.v11.1.0.0.0\lib\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\WikiAPI\packages\Microsoft.Reporting.WinForms.v11.1.0.0.0\lib\Microsoft.ReportViewer.ProcessingObjectModel.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\WikiAPI\packages\Microsoft.Reporting.WinForms.v11.1.0.0.0\lib\Microsoft.ReportViewer.WinForms.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\WikiAPI\packages\Microsoft.Reporting.WinForms.v11.1.0.0.0\lib\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\WikiAPI\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -53,17 +65,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmCity.cs">
+    <Compile Include="Controller\NArticulo.cs" />
+    <Compile Include="Controller\NCategoria.cs" />
+    <Compile Include="Controller\NCliente.cs" />
+    <Compile Include="Controller\NIngreso.cs" />
+    <Compile Include="Controller\NPresentacion.cs" />
+    <Compile Include="Controller\NProveedor.cs" />
+    <Compile Include="Controller\NTrabajador.cs" />
+    <Compile Include="Controller\NVenta.cs" />
+    <Compile Include="dsPrincipal.Designer.cs" />
+    <Compile Include="FrmArticulo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmCity.Designer.cs">
-      <DependentUpon>FrmCity.cs</DependentUpon>
+    <Compile Include="FrmArticulo.Designer.cs">
+      <DependentUpon>FrmArticulo.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmDocumentType.cs">
+    <Compile Include="FrmCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmDocumentType.Designer.cs">
-      <DependentUpon>FrmDocumentType.cs</DependentUpon>
+    <Compile Include="FrmCategoria.Designer.cs">
+      <DependentUpon>FrmCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCliente.Designer.cs">
+      <DependentUpon>FrmCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmHome.cs">
       <SubType>Form</SubType>
@@ -71,47 +98,65 @@
     <Compile Include="FrmHome.Designer.cs">
       <DependentUpon>FrmHome.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmMethodPayment.cs">
+    <Compile Include="FrmIngreso.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmMethodPayment.Designer.cs">
-      <DependentUpon>FrmMethodPayment.cs</DependentUpon>
+    <Compile Include="FrmIngreso.Designer.cs">
+      <DependentUpon>FrmIngreso.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmPersona.cs">
+    <Compile Include="FrmPresentacion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmPersona.Designer.cs">
-      <DependentUpon>FrmPersona.cs</DependentUpon>
+    <Compile Include="FrmPresentacion.Designer.cs">
+      <DependentUpon>FrmPresentacion.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmPersonType.cs">
+    <Compile Include="FrmProveedor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmPersonType.Designer.cs">
-      <DependentUpon>FrmPersonType.cs</DependentUpon>
+    <Compile Include="FrmProveedor.Designer.cs">
+      <DependentUpon>FrmProveedor.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmProduct.cs">
+    <Compile Include="FrmTrabajador.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmProduct.Designer.cs">
-      <DependentUpon>FrmProduct.cs</DependentUpon>
+    <Compile Include="FrmTrabajador.designer.cs">
+      <DependentUpon>FrmTrabajador.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmProductType.cs">
+    <Compile Include="FrmVenta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmProductType.Designer.cs">
-      <DependentUpon>FrmProductType.cs</DependentUpon>
+    <Compile Include="FrmVenta.Designer.cs">
+      <DependentUpon>FrmVenta.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmRol.cs">
+    <Compile Include="FrmVistaArticulo_Ingreso.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmRol.Designer.cs">
-      <DependentUpon>FrmRol.cs</DependentUpon>
+    <Compile Include="FrmVistaArticulo_Ingreso.Designer.cs">
+      <DependentUpon>FrmVistaArticulo_Ingreso.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSupplier.cs">
+    <Compile Include="FrmVistaArticulo_Venta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSupplier.Designer.cs">
-      <DependentUpon>FrmSupplier.cs</DependentUpon>
+    <Compile Include="FrmVistaArticulo_Venta.Designer.cs">
+      <DependentUpon>FrmVistaArticulo_Venta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmVistaCategoria_Articulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVistaCategoria_Articulo.Designer.cs">
+      <DependentUpon>FrmVistaCategoria_Articulo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmVistaCliente_Venta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVistaCliente_Venta.Designer.cs">
+      <DependentUpon>FrmVistaCliente_Venta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmVistaProveedor_Ingreso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVistaProveedor_Ingreso.Designer.cs">
+      <DependentUpon>FrmVistaProveedor_Ingreso.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -119,53 +164,60 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\Address.cs" />
-    <Compile Include="Models\City.cs" />
-    <Compile Include="Models\Document.cs" />
-    <Compile Include="Models\DocumentType.cs" />
-    <Compile Include="Models\Invoice.cs" />
-    <Compile Include="Models\InvoiceDetail.cs" />
-    <Compile Include="Models\MethodPayment.cs" />
-    <Compile Include="Models\Person.cs" />
-    <Compile Include="Models\PersonType.cs" />
-    <Compile Include="Models\Phone.cs" />
-    <Compile Include="Models\Product.cs" />
-    <Compile Include="Models\ProductType.cs" />
-    <Compile Include="Models\Rol.cs" />
-    <Compile Include="Models\Supplier.cs" />
-    <Compile Include="Models\User.cs" />
-    <Compile Include="Models\UserRol.cs" />
+    <Compile Include="Models\Connection.cs" />
+    <Compile Include="Models\DArticulo.cs" />
+    <Compile Include="Models\DCategoria.cs" />
+    <Compile Include="Models\DCliente.cs" />
+    <Compile Include="Models\DDetalle_Ingreso.cs" />
+    <Compile Include="Models\DDetalle_Venta.cs" />
+    <Compile Include="Models\DIngreso.cs" />
+    <Compile Include="Models\DPresentacion.cs" />
+    <Compile Include="Models\DProveedor.cs" />
+    <Compile Include="Models\DTrabajador.cs" />
+    <Compile Include="Models\DVenta.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmCity.resx">
-      <DependentUpon>FrmCity.cs</DependentUpon>
+    <EmbeddedResource Include="FrmArticulo.resx">
+      <DependentUpon>FrmArticulo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmDocumentType.resx">
-      <DependentUpon>FrmDocumentType.cs</DependentUpon>
+    <EmbeddedResource Include="FrmCategoria.resx">
+      <DependentUpon>FrmCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCliente.resx">
+      <DependentUpon>FrmCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmHome.resx">
       <DependentUpon>FrmHome.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmMethodPayment.resx">
-      <DependentUpon>FrmMethodPayment.cs</DependentUpon>
+    <EmbeddedResource Include="FrmIngreso.resx">
+      <DependentUpon>FrmIngreso.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmPersona.resx">
-      <DependentUpon>FrmPersona.cs</DependentUpon>
+    <EmbeddedResource Include="FrmPresentacion.resx">
+      <DependentUpon>FrmPresentacion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmPersonType.resx">
-      <DependentUpon>FrmPersonType.cs</DependentUpon>
+    <EmbeddedResource Include="FrmProveedor.resx">
+      <DependentUpon>FrmProveedor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmProduct.resx">
-      <DependentUpon>FrmProduct.cs</DependentUpon>
+    <EmbeddedResource Include="FrmTrabajador.resx">
+      <DependentUpon>FrmTrabajador.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmProductType.resx">
-      <DependentUpon>FrmProductType.cs</DependentUpon>
+    <EmbeddedResource Include="FrmVenta.resx">
+      <DependentUpon>FrmVenta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmRol.resx">
-      <DependentUpon>FrmRol.cs</DependentUpon>
+    <EmbeddedResource Include="FrmVistaArticulo_Ingreso.resx">
+      <DependentUpon>FrmVistaArticulo_Ingreso.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSupplier.resx">
-      <DependentUpon>FrmSupplier.cs</DependentUpon>
+    <EmbeddedResource Include="FrmVistaArticulo_Venta.resx">
+      <DependentUpon>FrmVistaArticulo_Venta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVistaCategoria_Articulo.resx">
+      <DependentUpon>FrmVistaCategoria_Articulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVistaCliente_Venta.resx">
+      <DependentUpon>FrmVistaCliente_Venta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVistaProveedor_Ingreso.resx">
+      <DependentUpon>FrmVistaProveedor_Ingreso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -178,6 +230,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\WikiAPI.Models.City.datasource" />
@@ -188,7 +241,6 @@
     <None Include="Properties\DataSources\WikiAPI.Models.ProductType.datasource" />
     <None Include="Properties\DataSources\WikiAPI.Models.Rol.datasource" />
     <None Include="Properties\DataSources\WikiAPI.Models.Supplier.datasource" />
-    <None Include="Properties\DataSources\WikiFormsApp.Models.Product.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -203,7 +255,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\error2.png" />
+    <None Include="Resources\imprimir.png" />
+    <None Include="Resources\Buscar_p.png" />
+    <None Include="Resources\Buscar.png" />
+    <None Include="Resources\leather-bag.png" />
+    <None Include="Resources\file_delete.png" />
+    <None Include="Resources\file_add.png" />
+    <None Include="Resources\agregar_p.png" />
+    <None Include="Resources\Remove.png" />
     <Content Include="wikiicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Reportes\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -14,23 +14,21 @@ namespace WikiAPI.Models
         public string prdDescription { get; set; }
 
         [Column("prd_price")]
-        public double prdPrice { get; set; }
+        public decimal prdPrice { get; set; }
 
          [Column("prd_cost")]
-        public double prdCost { get; set; }
+        public decimal prdCost { get; set; }
 
          [Column("prd_stock")]
-        public double prdStock { get; set; }
+        public decimal prdStock { get; set; }
 
         [Column("prd_pdtid")]
-        public int prdPedtId { get; set; }
+        public int prdPdtId { get; set; }
 
         [Column("prd_supid")]
-        public int prdSuptId { get; set; }
+        public int prdSupId { get; set; }
 
         [Column("prd_entry_date")]
         public DateTime prdEntryDate { get; set; }
-        public virtual ProductType productType { get; set; }
-        public virtual Supplier supplier { get; set; }
     }
 }
