@@ -173,7 +173,7 @@ namespace WikiFormsApp.Models
 
                 SqlParameter ParFecha_Nacimiento = new SqlParameter();
                 ParFecha_Nacimiento.ParameterName = "@fecha_nacimiento";
-                ParFecha_Nacimiento.SqlDbType = SqlDbType.VarChar;
+                ParFecha_Nacimiento.SqlDbType = SqlDbType.Date;
                 ParFecha_Nacimiento.Size = 50;
                 ParFecha_Nacimiento.Value = Cliente.Fecha_Nacimiento;
                 SqlCmd.Parameters.Add(ParFecha_Nacimiento);
@@ -276,7 +276,7 @@ namespace WikiFormsApp.Models
 
                 SqlParameter ParFecha_Nacimiento = new SqlParameter();
                 ParFecha_Nacimiento.ParameterName = "@fecha_nacimiento";
-                ParFecha_Nacimiento.SqlDbType = SqlDbType.VarChar;
+                ParFecha_Nacimiento.SqlDbType = SqlDbType.Date;
                 ParFecha_Nacimiento.Size = 50;
                 ParFecha_Nacimiento.Value = Cliente.Fecha_Nacimiento;
                 SqlCmd.Parameters.Add(ParFecha_Nacimiento);

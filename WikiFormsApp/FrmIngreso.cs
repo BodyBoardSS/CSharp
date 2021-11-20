@@ -436,10 +436,10 @@ namespace WikiFormsApp
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
-           // Reportes.FrmReporteCompras frm = new Reportes.FrmReporteCompras();
-            //frm.Texto = Convert.ToString(dtFecha1.Value);
-            //frm.Texto2 = Convert.ToString(dtFecha2.Value);
-            //frm.ShowDialog();
+            Reportes.FrmReporteCompras frm = new Reportes.FrmReporteCompras();
+            frm.Texto = Convert.ToString(dtFecha1.Value);
+            frm.Texto2 = Convert.ToString(dtFecha2.Value);
+            frm.ShowDialog();
         }
     }
 }

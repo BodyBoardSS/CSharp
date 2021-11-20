@@ -451,18 +451,18 @@ namespace WikiFormsApp
         private void btnComprobante_Click(object sender, EventArgs e)
         {
             
-            //FrmReporteFactura frm = new FrmReporteFactura();
-            //frm.Idventa = Convert.ToInt32(this.dataListado.CurrentRow.Cells["idventa"].Value);
-            //frm.ShowDialog();
+            Reportes.FrmReporteFactura frm = new Reportes.FrmReporteFactura();
+            frm.Idventa = Convert.ToInt32(this.dataListado.CurrentRow.Cells["idventa"].Value);
+            frm.ShowDialog();
 
         }
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
-            //Reportes.FrmReporteVentas frm = new Reportes.FrmReporteVentas();
-            //frm.Texto = Convert.ToString(dtFecha1.Value);
-            //frm.Texto2 = Convert.ToString(dtFecha2.Value);
-            //frm.ShowDialog();
+            Reportes.FrmReporteVentas frm = new Reportes.FrmReporteVentas();
+            frm.Texto = Convert.ToString(dtFecha1.Value);
+            frm.Texto2 = Convert.ToString(dtFecha2.Value);
+            frm.ShowDialog();
         }
     }
 }

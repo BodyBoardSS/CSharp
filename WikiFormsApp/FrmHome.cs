@@ -132,5 +132,11 @@ namespace WikiFormsApp
             abrirFormulariosEnWrapper(new FrmPresentacion());
             seguirdBtn(btnPresentacion);
         }
+
+        private void btnIngreso_Click(object sender, EventArgs e)
+        {
+            abrirFormulariosEnWrapper(new FrmIngreso());
+            seguirdBtn(btnIngreso);
+        }
     }
 }

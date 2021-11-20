@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using WikiFormsApp.Controller;
+using WikiFormsApp.Reportes;
 
 namespace WikiFormsApp
 {
@@ -375,14 +376,15 @@ namespace WikiFormsApp
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
-            //FrmReporteArticulos frm = new FrmReporteArticulos();
-            //frm.Texto = txtBuscar.Text;
-            //frm.ShowDialog();
+            FrmReporteArticulos frm = new FrmReporteArticulos();
+            frm.Texto = txtBuscar.Text;
+            frm.ShowDialog();
         }
 
         private void frmArticulo_FormClosing(object sender, FormClosingEventArgs e)
         {
             _Instancia = null;
         }
+
     }
 }

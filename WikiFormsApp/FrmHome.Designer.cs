@@ -32,12 +32,10 @@ namespace WikiFormsApp
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmHome));
             this.pnlSideBar = new System.Windows.Forms.Panel();
+            this.btnInfo = new System.Windows.Forms.Button();
             this.btnVentas = new System.Windows.Forms.Button();
             this.btnProcesos = new System.Windows.Forms.Button();
-            this.btnUser = new System.Windows.Forms.Button();
-            this.btnRol = new System.Windows.Forms.Button();
-            this.btnProducto = new System.Windows.Forms.Button();
-            this.btnPerson = new System.Windows.Forms.Button();
+            this.btnIngreso = new System.Windows.Forms.Button();
             this.btnPresentacion = new System.Windows.Forms.Button();
             this.btnProveedor = new System.Windows.Forms.Button();
             this.btnCliente = new System.Windows.Forms.Button();
@@ -57,7 +55,6 @@ namespace WikiFormsApp
             this.lblDashboard = new System.Windows.Forms.Label();
             this.pctSalir = new System.Windows.Forms.PictureBox();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.btnInfo = new System.Windows.Forms.Button();
             this.pnlSideBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbRoles)).BeginInit();
             this.panel2.SuspendLayout();
@@ -75,10 +72,7 @@ namespace WikiFormsApp
             this.pnlSideBar.Controls.Add(this.btnInfo);
             this.pnlSideBar.Controls.Add(this.btnVentas);
             this.pnlSideBar.Controls.Add(this.btnProcesos);
-            this.pnlSideBar.Controls.Add(this.btnUser);
-            this.pnlSideBar.Controls.Add(this.btnRol);
-            this.pnlSideBar.Controls.Add(this.btnProducto);
-            this.pnlSideBar.Controls.Add(this.btnPerson);
+            this.pnlSideBar.Controls.Add(this.btnIngreso);
             this.pnlSideBar.Controls.Add(this.btnPresentacion);
             this.pnlSideBar.Controls.Add(this.btnProveedor);
             this.pnlSideBar.Controls.Add(this.btnCliente);
@@ -96,13 +90,28 @@ namespace WikiFormsApp
             this.pnlSideBar.Size = new System.Drawing.Size(270, 881);
             this.pnlSideBar.TabIndex = 0;
             // 
+            // btnInfo
+            // 
+            this.btnInfo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnInfo.FlatAppearance.BorderSize = 0;
+            this.btnInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInfo.ForeColor = System.Drawing.Color.LightGray;
+            this.btnInfo.Location = new System.Drawing.Point(0, 672);
+            this.btnInfo.Name = "btnInfo";
+            this.btnInfo.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnInfo.Size = new System.Drawing.Size(270, 45);
+            this.btnInfo.TabIndex = 25;
+            this.btnInfo.Text = "Acerca de...";
+            this.btnInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInfo.UseVisualStyleBackColor = true;
+            // 
             // btnVentas
             // 
             this.btnVentas.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnVentas.FlatAppearance.BorderSize = 0;
             this.btnVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVentas.ForeColor = System.Drawing.Color.LightGray;
-            this.btnVentas.Location = new System.Drawing.Point(0, 762);
+            this.btnVentas.Location = new System.Drawing.Point(0, 627);
             this.btnVentas.Name = "btnVentas";
             this.btnVentas.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
             this.btnVentas.Size = new System.Drawing.Size(270, 45);
@@ -118,7 +127,7 @@ namespace WikiFormsApp
             this.btnProcesos.FlatAppearance.BorderSize = 0;
             this.btnProcesos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProcesos.ForeColor = System.Drawing.Color.LightGray;
-            this.btnProcesos.Location = new System.Drawing.Point(0, 717);
+            this.btnProcesos.Location = new System.Drawing.Point(0, 582);
             this.btnProcesos.Name = "btnProcesos";
             this.btnProcesos.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnProcesos.Size = new System.Drawing.Size(270, 45);
@@ -127,65 +136,21 @@ namespace WikiFormsApp
             this.btnProcesos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProcesos.UseVisualStyleBackColor = true;
             // 
-            // btnUser
+            // btnIngreso
             // 
-            this.btnUser.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnUser.FlatAppearance.BorderSize = 0;
-            this.btnUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUser.ForeColor = System.Drawing.Color.LightGray;
-            this.btnUser.Location = new System.Drawing.Point(0, 672);
-            this.btnUser.Name = "btnUser";
-            this.btnUser.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
-            this.btnUser.Size = new System.Drawing.Size(270, 45);
-            this.btnUser.TabIndex = 17;
-            this.btnUser.Text = "Usuarios";
-            this.btnUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUser.UseVisualStyleBackColor = true;
-            // 
-            // btnRol
-            // 
-            this.btnRol.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnRol.FlatAppearance.BorderSize = 0;
-            this.btnRol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRol.ForeColor = System.Drawing.Color.LightGray;
-            this.btnRol.Location = new System.Drawing.Point(0, 627);
-            this.btnRol.Name = "btnRol";
-            this.btnRol.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
-            this.btnRol.Size = new System.Drawing.Size(270, 45);
-            this.btnRol.TabIndex = 16;
-            this.btnRol.Text = "Roles";
-            this.btnRol.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRol.UseVisualStyleBackColor = true;
-            // 
-            // btnProducto
-            // 
-            this.btnProducto.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnProducto.FlatAppearance.BorderSize = 0;
-            this.btnProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProducto.ForeColor = System.Drawing.Color.LightGray;
-            this.btnProducto.Location = new System.Drawing.Point(0, 582);
-            this.btnProducto.Name = "btnProducto";
-            this.btnProducto.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
-            this.btnProducto.Size = new System.Drawing.Size(270, 45);
-            this.btnProducto.TabIndex = 15;
-            this.btnProducto.Text = "Producto";
-            this.btnProducto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProducto.UseVisualStyleBackColor = true;
-            // 
-            // btnPerson
-            // 
-            this.btnPerson.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnPerson.FlatAppearance.BorderSize = 0;
-            this.btnPerson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPerson.ForeColor = System.Drawing.Color.LightGray;
-            this.btnPerson.Location = new System.Drawing.Point(0, 537);
-            this.btnPerson.Name = "btnPerson";
-            this.btnPerson.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
-            this.btnPerson.Size = new System.Drawing.Size(270, 45);
-            this.btnPerson.TabIndex = 14;
-            this.btnPerson.Text = "Persona";
-            this.btnPerson.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPerson.UseVisualStyleBackColor = true;
+            this.btnIngreso.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnIngreso.FlatAppearance.BorderSize = 0;
+            this.btnIngreso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIngreso.ForeColor = System.Drawing.Color.LightGray;
+            this.btnIngreso.Location = new System.Drawing.Point(0, 537);
+            this.btnIngreso.Name = "btnIngreso";
+            this.btnIngreso.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
+            this.btnIngreso.Size = new System.Drawing.Size(270, 45);
+            this.btnIngreso.TabIndex = 14;
+            this.btnIngreso.Text = "Ingresos";
+            this.btnIngreso.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnIngreso.UseVisualStyleBackColor = true;
+            this.btnIngreso.Click += new System.EventHandler(this.btnIngreso_Click);
             // 
             // btnPresentacion
             // 
@@ -412,21 +377,6 @@ namespace WikiFormsApp
             this.pctSalir.TabStop = false;
             this.pctSalir.Click += new System.EventHandler(this.pctSalir_Click);
             // 
-            // btnInfo
-            // 
-            this.btnInfo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnInfo.FlatAppearance.BorderSize = 0;
-            this.btnInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInfo.ForeColor = System.Drawing.Color.LightGray;
-            this.btnInfo.Location = new System.Drawing.Point(0, 807);
-            this.btnInfo.Name = "btnInfo";
-            this.btnInfo.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnInfo.Size = new System.Drawing.Size(270, 45);
-            this.btnInfo.TabIndex = 25;
-            this.btnInfo.Text = "Acerca de...";
-            this.btnInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInfo.UseVisualStyleBackColor = true;
-            // 
             // FrmHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -475,16 +425,13 @@ namespace WikiFormsApp
         private System.Windows.Forms.Button btnTrabajador;
         private System.Windows.Forms.Button btnArticulo;
         public System.Windows.Forms.PictureBox pcbRoles;
-        private System.Windows.Forms.Button btnProducto;
-        private System.Windows.Forms.Button btnPerson;
+        private System.Windows.Forms.Button btnIngreso;
         private System.Windows.Forms.Button btnPresentacion;
         private System.Windows.Forms.Button btnProveedor;
         private System.Windows.Forms.Button btnCliente;
         private System.Windows.Forms.Button btnCategoria;
-        private System.Windows.Forms.Button btnRol;
         private System.Windows.Forms.Button btnVentas;
         private System.Windows.Forms.Button btnProcesos;
-        private System.Windows.Forms.Button btnUser;
         private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnInfo;

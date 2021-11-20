@@ -335,9 +335,9 @@ namespace WikiFormsApp
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
-            //Reportes.FrmReporteTrabajador frm = new Reportes.FrmReporteTrabajador();
-            //frm.Texto = txtBuscar.Text;
-            //frm.ShowDialog();
+            Reportes.FrmReporteTrabajador frm = new Reportes.FrmReporteTrabajador();
+            frm.Texto = txtBuscar.Text;
+            frm.ShowDialog();
         }
     }
 }
