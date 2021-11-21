@@ -79,7 +79,19 @@ namespace WikiFormsApp
 
         private void btnVentas_Click(object sender, EventArgs e)
         {
-            abrirFormulariosEnWrapper(new FrmVenta());
+            FrmVenta frmHijo = new FrmVenta();
+            if (formActivado != null)
+                formActivado.Close();
+
+            formActivado = frmHijo;
+            frmHijo.TopLevel = false;
+            frmHijo.Dock = DockStyle.Fill;
+            pnlWrapper.Controls.Add(frmHijo);
+            pnlWrapper.Tag = frmHijo;
+            frmHijo.BringToFront();
+            frmHijo.Show();
+            frmHijo.Idtrabajador = Convert.ToInt32(idTrabajador);
+            seguirdBtn(btnIngreso);
             seguirdBtn(btnVentas);
         }
 
@@ -135,7 +147,18 @@ namespace WikiFormsApp
 
         private void btnIngreso_Click(object sender, EventArgs e)
         {
-            abrirFormulariosEnWrapper(new FrmIngreso());
+            FrmIngreso frmHijo = new FrmIngreso();
+            if (formActivado != null)
+                formActivado.Close();
+
+            formActivado = frmHijo;
+            frmHijo.TopLevel = false;
+            frmHijo.Dock = DockStyle.Fill;
+            pnlWrapper.Controls.Add(frmHijo);
+            pnlWrapper.Tag = frmHijo;
+            frmHijo.BringToFront();
+            frmHijo.Show();
+            frmHijo.Idtrabajador = Convert.ToInt32(idTrabajador);
             seguirdBtn(btnIngreso);
         }
     }

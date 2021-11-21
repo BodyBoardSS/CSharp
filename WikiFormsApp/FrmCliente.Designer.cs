@@ -78,7 +78,7 @@
             // 
             // txtTelefono
             // 
-            this.txtTelefono.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.txtTelefono.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtTelefono.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTelefono.Location = new System.Drawing.Point(116, 215);
             this.txtTelefono.Margin = new System.Windows.Forms.Padding(2);
@@ -137,7 +137,7 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.txtEmail.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtEmail.Location = new System.Drawing.Point(393, 215);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(2);
@@ -212,16 +212,17 @@
             // 
             // cbSexo
             // 
+            this.cbSexo.BackColor = System.Drawing.Color.WhiteSmoke;
             this.cbSexo.FormattingEnabled = true;
             this.cbSexo.Items.AddRange(new object[] {
-            "M",
-            "F"});
+            "Masculino",
+            "Femenino"});
             this.cbSexo.Location = new System.Drawing.Point(116, 97);
             this.cbSexo.Margin = new System.Windows.Forms.Padding(2);
             this.cbSexo.Name = "cbSexo";
             this.cbSexo.Size = new System.Drawing.Size(72, 21);
             this.cbSexo.TabIndex = 24;
-            this.cbSexo.Text = "F";
+            this.cbSexo.Text = "Masculino";
             // 
             // label6
             // 
@@ -235,7 +236,7 @@
             // 
             // txtApellidos
             // 
-            this.txtApellidos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.txtApellidos.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtApellidos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtApellidos.Location = new System.Drawing.Point(366, 71);
             this.txtApellidos.Margin = new System.Windows.Forms.Padding(2);
@@ -265,7 +266,7 @@
             // 
             // txtNum_Documento
             // 
-            this.txtNum_Documento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.txtNum_Documento.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtNum_Documento.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNum_Documento.Location = new System.Drawing.Point(211, 136);
             this.txtNum_Documento.Margin = new System.Windows.Forms.Padding(2);
@@ -275,18 +276,18 @@
             // 
             // cbTipo_Documento
             // 
+            this.cbTipo_Documento.BackColor = System.Drawing.Color.WhiteSmoke;
             this.cbTipo_Documento.FormattingEnabled = true;
             this.cbTipo_Documento.Items.AddRange(new object[] {
-            "DNI",
-            "RUC",
-            "PAS",
-            "CEX"});
+            "DUI",
+            "NIT",
+            "PASAPORTE"});
             this.cbTipo_Documento.Location = new System.Drawing.Point(116, 135);
             this.cbTipo_Documento.Margin = new System.Windows.Forms.Padding(2);
             this.cbTipo_Documento.Name = "cbTipo_Documento";
             this.cbTipo_Documento.Size = new System.Drawing.Size(92, 21);
             this.cbTipo_Documento.TabIndex = 13;
-            this.cbTipo_Documento.Text = "RUC";
+            this.cbTipo_Documento.Text = "DUI";
             // 
             // label7
             // 
@@ -352,7 +353,7 @@
             // 
             // txtDireccion
             // 
-            this.txtDireccion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.txtDireccion.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtDireccion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDireccion.Location = new System.Drawing.Point(116, 168);
             this.txtDireccion.Margin = new System.Windows.Forms.Padding(2);
@@ -364,7 +365,7 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.txtNombre.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNombre.Location = new System.Drawing.Point(116, 71);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(2);
@@ -374,7 +375,7 @@
             // 
             // txtIdcliente
             // 
-            this.txtIdcliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.txtIdcliente.BackColor = System.Drawing.Color.Silver;
             this.txtIdcliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtIdcliente.Location = new System.Drawing.Point(116, 32);
             this.txtIdcliente.Margin = new System.Windows.Forms.Padding(2);

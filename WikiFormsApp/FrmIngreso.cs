@@ -181,6 +181,7 @@ namespace WikiFormsApp
 
         private void FrmIngreso_Load(object sender, EventArgs e)
         {
+            _instancia = this;
             this.Top = 0;
             this.Left = 0;
             this.Mostrar();

@@ -52,6 +52,7 @@ namespace WikiFormsApp
         public FrmVenta()
         {
             InitializeComponent();
+            _instancia = this;
             this.ttMensaje.SetToolTip(this.txtCliente,"Seleccione un Cliente");
             this.ttMensaje.SetToolTip(this.txtSerie, "Ingrese una serie del comprobante");
             this.ttMensaje.SetToolTip(this.txtCorrelativo, "Ingrese un número del comprobante");
@@ -89,7 +90,7 @@ namespace WikiFormsApp
             this.txtCorrelativo.Text = string.Empty;
             this.txtIgv.Text = string.Empty;
             this.lblTotal_Pagado.Text = "0,0";
-            this.txtIgv.Text = "18";
+            this.txtIgv.Text = "13";
             this.crearTabla();
         }
         private void limpiarDetalle()

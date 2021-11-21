@@ -184,8 +184,8 @@
             // btnImprimir
             // 
             this.btnImprimir.BackColor = System.Drawing.Color.Silver;
-            this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnImprimir.Image = global::WikiFormsApp.Properties.Resources.imprimir;
+            this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnImprimir.Location = new System.Drawing.Point(513, 24);
             this.btnImprimir.Margin = new System.Windows.Forms.Padding(2);
             this.btnImprimir.Name = "btnImprimir";
@@ -274,11 +274,12 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.txtPassword.BackColor = System.Drawing.Color.Gainsboro;
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPassword.Location = new System.Drawing.Point(370, 223);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(2);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(95, 20);
             this.txtPassword.TabIndex = 51;
             // 
@@ -294,7 +295,7 @@
             // 
             // txtUsuario
             // 
-            this.txtUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.txtUsuario.BackColor = System.Drawing.Color.Gainsboro;
             this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtUsuario.Location = new System.Drawing.Point(218, 225);
             this.txtUsuario.Margin = new System.Windows.Forms.Padding(2);
@@ -324,7 +325,7 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.txtEmail.BackColor = System.Drawing.Color.Gainsboro;
             this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtEmail.Location = new System.Drawing.Point(370, 187);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(2);
@@ -344,7 +345,7 @@
             // 
             // txtTelefono
             // 
-            this.txtTelefono.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.txtTelefono.BackColor = System.Drawing.Color.Gainsboro;
             this.txtTelefono.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTelefono.Location = new System.Drawing.Point(370, 160);
             this.txtTelefono.Margin = new System.Windows.Forms.Padding(2);
@@ -364,7 +365,7 @@
             // 
             // txtNum_Documento
             // 
-            this.txtNum_Documento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.txtNum_Documento.BackColor = System.Drawing.Color.Gainsboro;
             this.txtNum_Documento.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNum_Documento.Location = new System.Drawing.Point(85, 128);
             this.txtNum_Documento.Margin = new System.Windows.Forms.Padding(2);
@@ -374,6 +375,7 @@
             // 
             // cbAcceso
             // 
+            this.cbAcceso.BackColor = System.Drawing.Color.Gainsboro;
             this.cbAcceso.FormattingEnabled = true;
             this.cbAcceso.Items.AddRange(new object[] {
             "Administrador",
@@ -417,6 +419,7 @@
             // 
             // cbSexo
             // 
+            this.cbSexo.BackColor = System.Drawing.Color.Gainsboro;
             this.cbSexo.FormattingEnabled = true;
             this.cbSexo.Items.AddRange(new object[] {
             "Masculino",
@@ -440,7 +443,7 @@
             // 
             // txtApellidos
             // 
-            this.txtApellidos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.txtApellidos.BackColor = System.Drawing.Color.Gainsboro;
             this.txtApellidos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtApellidos.Location = new System.Drawing.Point(370, 63);
             this.txtApellidos.Margin = new System.Windows.Forms.Padding(2);
@@ -460,7 +463,7 @@
             // 
             // txtDireccion
             // 
-            this.txtDireccion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.txtDireccion.BackColor = System.Drawing.Color.Gainsboro;
             this.txtDireccion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDireccion.Location = new System.Drawing.Point(85, 162);
             this.txtDireccion.Margin = new System.Windows.Forms.Padding(2);
@@ -472,7 +475,7 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.txtNombre.BackColor = System.Drawing.Color.Gainsboro;
             this.txtNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNombre.Location = new System.Drawing.Point(85, 61);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(2);
@@ -482,7 +485,7 @@
             // 
             // txtIdtrabajador
             // 
-            this.txtIdtrabajador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.txtIdtrabajador.BackColor = System.Drawing.Color.LightGray;
             this.txtIdtrabajador.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtIdtrabajador.Location = new System.Drawing.Point(85, 22);
             this.txtIdtrabajador.Margin = new System.Windows.Forms.Padding(2);
@@ -576,7 +579,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Maroon;
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(18, 9);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
